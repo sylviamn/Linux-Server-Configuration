@@ -28,7 +28,12 @@ In terminal, used these commands:
   2. `sudo apt-get upgrade`
   3. `sudo apt-get autoremove`
   
+4. **Change the SSH port from 22 to 2200**
+  1. In terminal, ran command `sudo nano /etc/ssh/sshd_config`
+  2. Changed line "Port 22" to "Port 2200"
   
 ##Resources##
 [How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
+
+[How to change the ssh port number](http://www.2daygeek.com/how-to-change-the-ssh-port-number/)
 
