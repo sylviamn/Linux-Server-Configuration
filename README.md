@@ -18,7 +18,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   4. Securely logged in to server `ssh -i ~/.ssh/udacity_key.rsa root@52.25.83.208`
 
 
-2. **Add "grader" and Set Permissions**
+2. **Add User and Set Permissions**
   1. While still logged in securely to server, in terminal ran command `sudo adduser grader`
   2. Gave grader sudo permissions by using command `sudo visudo` and adding line `grader    ALL=(ALL:ALL) ALL` under "#User privilege specification"
 
@@ -27,7 +27,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   2. `sudo apt-get upgrade`
   3. `sudo apt-get autoremove`
   
-4. **Change the SSH port from 22 to 2200**
+4. **Change the SSH Port**
   1. In terminal, ran command `sudo nano /etc/ssh/sshd_config`
   2. Changed line "Port 22" to "Port 2200"
 
@@ -37,13 +37,21 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   3. Allowed incoming connections for SSH `sudo ufw allow 2200/tcp`
   4. Allowed incoming connections for HTTP `sudo ufw allow 80/tcp`
   5. Allowed incoming connections for NTP`sudo ufw allow 123/tcp`
-  6. Turned on firewall`sudo ufw enable`
+  6. Turned on firewall `sudo ufw enable`
   7. Double checked configuration `sudo ufw status`
   8. Restarted service: `sudo service ssh restart`
+
+6. **Configure the local timezone**
+  1. Ran command `sudo dpkg-reconfigure tzdata`
+  2. In menu that popped up, selected "None of the above" then "UTC"
+  
+7. ****
 
   
 ##Resources##
 [How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
 
 [How to change the ssh port number](http://www.2daygeek.com/how-to-change-the-ssh-port-number/)
+
+[How do I change the timezone to UTC?](http://askubuntu.com/questions/117359/how-do-i-change-the-timezone-to-utc)
 
