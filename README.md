@@ -6,11 +6,8 @@
 **SSH port:** 2200
 
 
-
 ##Web Application URL##
 http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
-
-
 
 
 ##Configuration Summary##
@@ -20,6 +17,9 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   3. Changed permission of moved file so owner can read and write file `chmod 600 ~/.ssh/udacity_key.rsa`
   4. Securely logged in to server `ssh -i ~/.ssh/udacity_key.rsa root@52.25.83.208`
 
+
+2. **Add "grader" and Set Permissions**
+  1. While still logged in securely to server, in terminal run command ``
 
 
 ##Resources##
