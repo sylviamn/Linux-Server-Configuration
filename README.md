@@ -31,6 +31,18 @@ In terminal, used these commands:
 4. **Change the SSH port from 22 to 2200**
   1. In terminal, ran command `sudo nano /etc/ssh/sshd_config`
   2. Changed line "Port 22" to "Port 2200"
+
+5. **Configure the Uncomplicated Firewall (UFW)**
+Allowed incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123) by running commands:
+  1. `sudo ufw default deny incoming`
+  2. `sudo ufw default allow outgoing`
+  3. `sudo ufw allow 2200/tcp`
+  4. `sudo ufw allow 80/tcp`
+  5. `sudo ufw allow 123/tcp`
+  6. `sudo ufw enable`
+  7. double checked configuration `sudo ufw status`
+  8. restarted service: `sudo service ssh restart`
+
   
 ##Resources##
 [How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
