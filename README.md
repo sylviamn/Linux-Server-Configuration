@@ -58,6 +58,16 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 
 8. **Install and Configure PostgreSQL**
   1. Installed postgresql `sudo apt-get install postgresql`
+  2. Checked for no remote connections allowed `sudo nano /etc/postgresql/9.3/main/pg_hba.conf`
+  3. Added user catalog and add database catalog with limited permissions by running these commands:
+    1. `sudo su - postgres`
+    2. `psql`
+    3. `CREATE DATABASE catalog;`
+    4. `CREATE USER catalog WITH PASSWORD 'password';`
+    5. `GRANT ALL PRIVILEGES ON DATABASE catalog TO catalog;`
+    6. `\q`
+    7. `exit`
+    
   
   
   `/etc/apache2/sites-enabled/000-default.conf`
@@ -69,4 +79,8 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 [How to change the ssh port number](http://www.2daygeek.com/how-to-change-the-ssh-port-number/)
 
 [How do I change the timezone to UTC?](http://askubuntu.com/questions/117359/how-do-i-change-the-timezone-to-utc)
+
+[“Permission denied (publickey) after adding “grader” user and changing ssh port](https://discussions.udacity.com/t/permission-denied-publickey-after-adding-grader-user-and-changing-ssh-port/207087)
+
+[PostgreSQL add or create a user account and grant permission for database](https://www.cyberciti.biz/faq/howto-add-postgresql-user-account/)
 
