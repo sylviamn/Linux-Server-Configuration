@@ -21,6 +21,13 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 2. **Add User and Set Permissions**
   1. While still logged in securely to server, in terminal ran command `sudo adduser grader`
   2. Gave grader sudo permissions by using command `sudo visudo` and adding line `grader    ALL=(ALL:ALL) ALL` under "#User privilege specification"
+  3. Gave grader ssh access
+    1. Created .ssh folder `sudo mkdir /home/grader/.ssh`
+    2. Copy authorized_keys file to new folder `sudo cp ~/.ssh/authorized_keys /home/grader/.ssh/authorized_keys`
+    3. Changed ownership of new folder `chown grader:grader /home/grader/.ssh`
+    4. Changed permissions of new folder so grader can only read, write, and execute `chmod 700 /home/grader/.ssh`
+    5. Changed ownership of copied file `chown grader:grader /home/grader/.ssh/authorized_keys`
+    6. Changed permissions of copied file so grader can only read and write `chmod 600 /home/grader/.ssh/authorized_keys`
 
 3. **Update All Currently Installed Packages**
   1. `sudo apt-get update`
@@ -45,8 +52,16 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   1. Ran command `sudo dpkg-reconfigure tzdata`
   2. In menu that popped up, selected "None of the above" then "UTC"
   
-7. ****
+7. **Install and Configure Apache to Serve a Python mod_wsgi Application**
+  1. Installed Apache by running command `sudo apt-get install apache2`
+  2. Installed mod-wsgi `sudo apt-get install libapache2-mod-wsgi`
 
+8. **Install and Configure PostgreSQL**
+  1. Installed postgresql `sudo apt-get install postgresql`
+  
+  
+  `/etc/apache2/sites-enabled/000-default.conf`
+  `sudo apache2ctl restart`
   
 ##Resources##
 [How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
