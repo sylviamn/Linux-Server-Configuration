@@ -20,8 +20,9 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 
 2. **Add "grader" and Set Permissions**
   1. While still logged in securely to server, in terminal ran command `sudo adduser grader`
-  2. Gave grader sudo permissions by using command `sudo visudo` and adding line `grader    ALL=(ALL:ALL) ALL' under "#User privilege specification"
+  2. Gave grader sudo permissions by using command `sudo visudo` and adding line `grader    ALL=(ALL:ALL) ALL` under "#User privilege specification"
 
 
 ##Resources##
+[How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
 
