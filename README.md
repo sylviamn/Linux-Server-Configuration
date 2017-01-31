@@ -23,6 +23,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   2. Gave grader sudo permissions by using command `sudo visudo` and adding line `grader    ALL=(ALL:ALL) ALL` under "#User privilege specification"
 
 3. **Update All Currently Installed Packages**
+
 In terminal, used these commands:
   1. `sudo apt-get update`
   2. `sudo apt-get upgrade`
@@ -33,6 +34,7 @@ In terminal, used these commands:
   2. Changed line "Port 22" to "Port 2200"
 
 5. **Configure the Uncomplicated Firewall (UFW)**
+
 Allowed incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123) by running commands:
   1. `sudo ufw default deny incoming`
   2. `sudo ufw default allow outgoing`
