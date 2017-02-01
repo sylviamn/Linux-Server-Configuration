@@ -83,7 +83,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
        * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
      3. `sudo nano FlaskApp/__init__.py` 
        * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
-       * Changed instances of "'client_secrets.json'" to "r'/var/www/FlaskApp/FlaskApp/client_secrets.json'"
+        * Changed instances of "'client_secrets.json'" to "r'/var/www/FlaskApp/FlaskApp/client_secrets.json'"
    4. Installed needed packages:
      1. `sudo apt-get install python-psycopg2 python-flask`
      2. `sudo apt-get install python-sqlalchemy python-pip`
