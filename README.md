@@ -68,6 +68,20 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
     6. `\q`
     7. `exit`
     
+ 9. **Install Git, Clone and Setup Catalog App**
+   1. Installed git `sudo apt-get install git`
+   2. Created folder for catalog app `sudo mkdir /var/www/FlaskApp` 
+   3. Cloned catalog app repository into new folder
+     1. `cd var/www/FlaskApp`
+     2. `git clone https://github.com/sylviamn/Item_Catalog_Project.git`
+   4. Renamed cloned folder `sudo mv Item_Catalog_Project FlaskApp`
+   4. Installed needed packages:
+     1. `sudo apt-get install python-psycopg2 python-flask`
+     2. `sudo apt-get install python-sqlalchemy python-pip`
+     3. `sudo pip install oauth2client`
+     4. `sudo pip install requests`
+     5. `sudo pip install httplib2`
+     6. `sudo pip install flask-seasurf`
   
   
   `/etc/apache2/sites-enabled/000-default.conf`
