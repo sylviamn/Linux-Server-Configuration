@@ -75,6 +75,15 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
     1. `cd var/www/FlaskApp`
     2. `git clone https://github.com/sylviamn/Item_Catalog_Project.git`
    4. Renamed cloned folder `sudo mv Item_Catalog_Project FlaskApp`
+   5. Renamed main application python file `sudo mv FlaskApp/finalproject.py FlaskApp/__init__.py`
+   6. Edited catalog app python files
+     1. `sudo nano FlaskApp/database_setup.py` 
+       * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
+     2. `sudo nano FlaskApp/database_load.py` 
+       * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
+     3. `sudo nano FlaskApp/__init__.py` 
+       * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
+       * Changed instances of "'client_secrets.json'" to "r'/var/www/FlaskApp/FlaskApp/client_secrets.json'"
    4. Installed needed packages:
      1. `sudo apt-get install python-psycopg2 python-flask`
      2. `sudo apt-get install python-sqlalchemy python-pip`
@@ -97,4 +106,6 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 [“Permission denied (publickey) after adding “grader” user and changing ssh port](https://discussions.udacity.com/t/permission-denied-publickey-after-adding-grader-user-and-changing-ssh-port/207087)
 
 [PostgreSQL add or create a user account and grant permission for database](https://www.cyberciti.biz/faq/howto-add-postgresql-user-account/)
+
+[How To Deploy a Flask Application on an Ubuntu VPS](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 
