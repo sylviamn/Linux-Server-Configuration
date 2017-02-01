@@ -92,17 +92,18 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
     5. `sudo pip install httplib2`
     6. `sudo pip install flask-seasurf`
   8. Created app wsgi file
-    1. `sudo nano FlaskApp/flaskapp.wsgi'
+    1. `sudo nano flaskapp.wsgi'
     2. Pasted this into file: 
-```#!/usr/bin/python
-import sys
-import logging
-logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/FlaskApp/")
+      ```
+      #!/usr/bin/python
+      import sys
+      import logging
+      logging.basicConfig(stream=sys.stderr)
+      sys.path.insert(0,"/var/www/FlaskApp/")
 
-from FlaskApp import app as application
-application.secret_key = 'Add your secret key'
-```
+      from FlaskApp import app as application
+      application.secret_key = 'super_secret_key'
+      ```
   
   
   `/etc/apache2/sites-enabled/000-default.conf`
