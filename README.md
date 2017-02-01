@@ -74,23 +74,23 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   3. Cloned catalog app repository into new folder
     1. `cd var/www/FlaskApp`
     2. `git clone https://github.com/sylviamn/Item_Catalog_Project.git`
-   4. Renamed cloned folder `sudo mv Item_Catalog_Project FlaskApp`
-   5. Renamed main application python file `sudo mv FlaskApp/finalproject.py FlaskApp/__init__.py`
-   6. Edited catalog app python files
-     1. `sudo nano FlaskApp/database_setup.py` 
-       * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
-     2. `sudo nano FlaskApp/database_load.py` 
-       * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
-     3. `sudo nano FlaskApp/__init__.py` 
+  4. Renamed cloned folder `sudo mv Item_Catalog_Project FlaskApp`
+  5. Renamed main application python file `sudo mv FlaskApp/finalproject.py FlaskApp/__init__.py`
+  6. Edited catalog app python files
+    1. `sudo nano FlaskApp/database_setup.py` 
+      * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
+    2. `sudo nano FlaskApp/database_load.py` 
+      * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
+    3. `sudo nano FlaskApp/__init__.py` 
        * Changed "engine = create_engine('sqlite:///itemCatalog.db')" to "engine = create_engine('postgresql://catalog:password@localhost/catalog')"
         * Changed instances of "'client_secrets.json'" to "r'/var/www/FlaskApp/FlaskApp/client_secrets.json'"
-   4. Installed needed packages:
-     1. `sudo apt-get install python-psycopg2 python-flask`
-     2. `sudo apt-get install python-sqlalchemy python-pip`
-     3. `sudo pip install oauth2client`
-     4. `sudo pip install requests`
-     5. `sudo pip install httplib2`
-     6. `sudo pip install flask-seasurf`
+  7. Installed needed packages:
+    1. `sudo apt-get install python-psycopg2 python-flask`
+    2. `sudo apt-get install python-sqlalchemy python-pip`
+    3. `sudo pip install oauth2client`
+    4. `sudo pip install requests`
+    5. `sudo pip install httplib2`
+    6. `sudo pip install flask-seasurf`
   
   
   `/etc/apache2/sites-enabled/000-default.conf`
