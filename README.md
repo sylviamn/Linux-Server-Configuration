@@ -55,6 +55,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
 7. **Install and Configure Apache to Serve a Python mod_wsgi Application**
   1. Installed Apache by running command `sudo apt-get install apache2`
   2. Installed mod-wsgi `sudo apt-get install libapache2-mod-wsgi`
+  3. Enabled mod-wsgi `sudo a2enmod wsgi`
 
 8. **Install and Configure PostgreSQL**
   1. Installed postgresql `sudo apt-get install postgresql`
@@ -92,7 +93,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
     5. `sudo pip install httplib2`
     6. `sudo pip install flask-seasurf`
   8. Created app wsgi file
-    1. `sudo nano flaskapp.wsgi'
+    1. `sudo nano flaskapp.wsgi`
     2. Pasted this into file: 
       ```
       #!/usr/bin/python
@@ -104,10 +105,32 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
       from FlaskApp import app as application
       application.secret_key = 'super_secret_key'
       ```
+  9. Configured app
+    1. `sudo nano /etc/apache2/sites-enabled/000-default.conf`
+    2. Commented out content and pasted this into file:
+       ```
+      <VirtualHost *:80>
+		    ServerName 52.25.83.208
+		    ServerAdmin admin@mywebsite.com
+		    WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+		    <Directory /var/www/FlaskApp/FlaskApp/>
+			    Order allow,deny
+			    Allow from all
+		    </Directory>
+		    Alias /static /var/www/FlaskApp/FlaskApp/static
+		    <Directory /var/www/FlaskApp/FlaskApp/static/>
+			    Order allow,deny
+			    Allow from all
+		    </Directory>
+		    ErrorLog ${APACHE_LOG_DIR}/error.log
+		    LogLevel warn
+		    CustomLog ${APACHE_LOG_DIR}/access.log combined
+      </VirtualHost>
+      ```
+    3. Enabled app `sudo a2ensite FlaskApp`
+    5. Restarted apache `sudo service apache2 restart`
   
-  
-  `/etc/apache2/sites-enabled/000-default.conf`
-  `sudo apache2ctl restart`
+
   
 ##Resources##
 [How To Add, Delete, and Grant Sudo Privileges to Users on a Debian VPS](https://www.digitalocean.com/community/tutorials/how-to-add-delete-and-grant-sudo-privileges-to-users-on-a-debian-vps)
