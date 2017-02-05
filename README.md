@@ -108,7 +108,8 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
   9. Configured app
     1. `sudo nano /etc/apache2/sites-enabled/000-default.conf`
     2. Commented out content and pasted this into file:
-       ```
+    
+      ```
       <VirtualHost *:80>
 		    ServerName 52.25.83.208
 		    ServerAdmin admin@mywebsite.com
