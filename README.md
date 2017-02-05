@@ -92,7 +92,16 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
     4. `sudo pip install requests`
     5. `sudo pip install httplib2`
     6. `sudo pip install flask-seasurf`
-  8. Created app wsgi file
+  8. Setup and loaded database
+    1. sudo python FlaskApp/database_setup.py
+    2. sudo python FlaskApp/database_load.py
+  9. Configured Google Authentication
+    1. In Google API Manager, under project Item Catalog App, added "http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com" under Authorized JavaScript origins and "http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/oauth2callback" under Authorized redirect URIs then saved.
+    2. Downloaded JSON file.
+    3. Opened JSON file in text editor and copied content.
+    4. In terminal opened client_secrets.json `sudo nano FlaskApp/client_secrets.json`
+    5. Removed current content and pasted copied content from downloaded json file.
+  10. Created app wsgi file
     1. `sudo nano flaskapp.wsgi`
     2. Pasted this into file: 
       ```
@@ -105,7 +114,7 @@ http://ec2-52-25-83-208.us-west-2.compute.amazonaws.com/
       from FlaskApp import app as application
       application.secret_key = 'super_secret_key'
       ```
-  9. Configured app
+  11. Configured app
     1. `sudo nano /etc/apache2/sites-enabled/000-default.conf`
     2. Commented out content and pasted this into file:
     
